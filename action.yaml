@@ -21,10 +21,10 @@ runs:
         resultado=$(echo $response | jq -r '.projectStatus .status')
         if [[ $resultado == "OK" ]]; then
           echo -e "Gate Passou com Sucesso ✅\n"
-          echo -e $resultado | jq .
+          echo -e $response | jq .
         else
           echo -e "Gate Falhou ❌\n"
-          echo -e $resultado | jq . 
+          echo -e $response | jq . 
         fi
 
       shell: bash
