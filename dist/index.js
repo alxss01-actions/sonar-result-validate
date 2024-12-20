@@ -27992,14 +27992,14 @@ async function run() {
     // Define o endpoint
     const url = `${sonarUrl}/api/qualitygates/project_status?projectKey=${projectKey}`;
 
-    // Faz a requisição ao SonarQube
-    if (token === "" || token === undefined) {
-      console.log("Token não existe!");
-    }
+    const auth = Buffer.from(`${token}:`).toString("base64");
 
+    // Faz a requisição ao SonarQube
     const response = await axios.get(url, {
       headers: {
-        Authorization: `"Bearer ${token}"`,
+        headers: {
+          Authorization: `Basic ${auth}`,
+        },
       },
     });
 
