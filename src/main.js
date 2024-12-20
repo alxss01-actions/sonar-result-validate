@@ -16,9 +16,7 @@ async function run() {
     // Faz a requisição ao SonarQube
     const response = await axios.get(url, {
       headers: {
-        headers: {
-          Authorization: `Basic ${auth}`,
-        },
+        Authorization: `Basic ${auth}`,
       },
     });
 
