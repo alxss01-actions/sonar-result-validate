@@ -18,7 +18,13 @@ runs:
     - name: Valida Resultado do Sonar
       run: |
         response=$(curl -s -H "Authorization: Bearer ${{ inputs.token }}" -X GET "${{ inputs.sonarUrl }}/api/qualitygates/project_status?projectKey=${{ inputs.projectKey }}")
-        echo "Response: $response"
         resultado=$(echo $response | jq -r '.projectStatus .status')
-        echo $resultado
+        if [[ $resultado == "OK" ]]; then
+          echo -e "Gate Passou com Sucesso ✅\n"
+          echo -e $resultado | jq .
+        else
+          echo -e "Gate Falhou ❌\n"
+          echo -e $resultado | jq . 
+        fi
+
       shell: bash
