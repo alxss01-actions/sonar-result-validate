@@ -27995,7 +27995,7 @@ async function run() {
     // Faz a requisição ao SonarQube
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: "Bearer squ_a57f2304d5afb4ead9c6fced9d8859a68505c58d",
       },
     });
 
