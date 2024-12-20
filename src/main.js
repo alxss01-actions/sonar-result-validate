@@ -11,12 +11,13 @@ async function run() {
     // Define o endpoint
     const url = `${sonarUrl}/api/qualitygates/project_status?projectKey=${projectKey}`;
 
-    // Faz a requisição ao SonarQube
+    const auth = Buffer.from(`${token}:`).toString("base64");
 
+    // Faz a requisição ao SonarQube
     const response = await axios.get(url, {
       headers: {
         headers: {
-          Authorization: "Bearer squ_a57f2304d5afb4ead9c6fced9d8859a68505c58d",
+          Authorization: `Basic ${auth}`,
         },
       },
     });
