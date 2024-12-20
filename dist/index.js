@@ -27993,11 +27993,13 @@ async function run() {
     const url = `${sonarUrl}/api/qualitygates/project_status?projectKey=${projectKey}`;
 
     // Faz a requisição ao SonarQube
-    const auth = `Bearer ${token}`;
-    console.log(auth);
+    if (token === "" || token === undefined) {
+      console.log("Token não existe!");
+    }
+
     const response = await axios.get(url, {
       headers: {
-        Authorization: auth,
+        Authorization: `"Bearer ${token}"`,
       },
     });
 
