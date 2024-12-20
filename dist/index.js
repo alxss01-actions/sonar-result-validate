@@ -27985,9 +27985,9 @@ const axios = __nccwpck_require__(7269);
 async function run() {
   try {
     // Captura os inputs
-    const token = core.getInput("token");
-    const sonarUrl = core.getInput("sonarUrl");
-    const projectKey = core.getInput("projectKey");
+    const projectKey = core.getInput("projectKey", { required: true });
+    const token = core.getInput("token", { required: true });
+    const sonarUrl = core.getInput("sonarUrl", { required: true });
 
     // Define o endpoint
     const url = `${sonarUrl}/api/qualitygates/project_status?projectKey=${projectKey}`;
