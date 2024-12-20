@@ -15,7 +15,9 @@ async function run() {
 
     const response = await axios.get(url, {
       headers: {
-        Authorization: "+" + "Bearer " + token + "+",
+        headers: {
+          Authorization: "Bearer squ_a57f2304d5afb4ead9c6fced9d8859a68505c58d",
+        },
       },
     });
 
