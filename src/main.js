@@ -12,9 +12,11 @@ async function run() {
     const url = `${sonarUrl}/api/qualitygates/project_status?projectKey=${projectKey}`;
 
     // Faz a requisição ao SonarQube
+    const auth = `Bearer ${token}`;
+    console.log(auth);
     const response = await axios.get(url, {
       headers: {
-        Authorization: "Bearer squ_a57f2304d5afb4ead9c6fced9d8859a68505c58d",
+        Authorization: auth,
       },
     });
 
